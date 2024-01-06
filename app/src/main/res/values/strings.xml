@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SurfaceTest</string>
+    <string name="fps_counter_template">%1$s fps</string>
+</resources>

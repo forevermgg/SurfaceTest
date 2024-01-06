@@ -1,0 +1,38 @@
+pluginManagement {
+    repositories {
+        maven {
+            url = new File(buildscript.sourceFile.parent + "/external").getCanonicalFile()
+            System.out.println("external = ${url}")
+        }
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            url = "https://plugins.gradle.org/m2/"
+        }
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "SurfaceTest"
+include(":app")
+
+
+/////////////////////////////
+//
+// External
+//
+/////////////////////////////
+
+File externalRoot = new File(rootDir, "/external/")
+System.out.println("externalRoot = ${externalRoot}")
+
+include 'libyuv'
+project(':libyuv').projectDir=file("${externalRoot}/libyuv")
